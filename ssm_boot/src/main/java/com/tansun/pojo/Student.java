@@ -16,7 +16,7 @@ import lombok.Data;
 @Builder
 @TableName("student")
 public class Student {
-    @TableField(value = "id")
+
     private Integer id;
     @TableField(value = "name")
     private String name;

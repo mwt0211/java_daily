@@ -1,25 +1,5 @@
-server:
-  port: 8086
-#spring:
-#  datasource:
-#    druid:
-#      driver-class-name: com.mysql.jdbc.Driver
-#      url: jdbc:mysql://localhost:3306/day01? serverTimezone=UTC
-#      password: root
-#      username: root
-mybatis-plus:
-  global-config:
-    db-config:
-      id-type: auto
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#多环境开发配置
+
 spring:
-  datasource:
-    druid:
-     driver-class-name: com.mysql.jdbc.Driver
-     url: jdbc:mysql://localhost:3306/day01?serverTimezone=UTC
-     password: root
-     username: root
-     remove-abandoned: true
-     remove-abandoned-timeout: 1800
-#     username: root
+  profiles:
+    active: pro
