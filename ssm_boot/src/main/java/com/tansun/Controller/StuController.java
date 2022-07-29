@@ -5,7 +5,10 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tansun.pojo.Student;
 import com.tansun.service.IStuService;
 import com.tansun.utils.Response;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +24,12 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/Stu")
+@Slf4j
 public class StuController {
     @Autowired
     private IStuService iStuService;
-
+    //开启日志追加
+ // private static final Logger log=  LoggerFactory.getLogger(StuController.class);
     //查询所有
     @GetMapping("/all")
     public Response getAll() {
@@ -48,6 +53,17 @@ public class StuController {
         if(!StringUtils.isEmpty(student)){
             response.setFlag(true);
             response.setData(student);
+            System.out.println("response = " + response);
+            System.out.println("增加热部署");
+            System.out.println("增加热部署");
+//            try {
+//                //模拟异常
+//                int i=    1/0;
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//                log.info("info",e);
+//            }
+            log.info("调用出错",response.getMsg());
         }
         return response;
     }

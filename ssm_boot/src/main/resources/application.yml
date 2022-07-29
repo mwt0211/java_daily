@@ -2,4 +2,16 @@
 
 spring:
   profiles:
-    active: pro
+    active: dev
+server:
+  servlet:
+    context-path: "/exer"
+logging:
+  file:
+    name: ssm_boot.log
+  logback:
+    rollingpolicy:
+      #文件最大为5KB
+      max-file-size: 5KB
+      #文件命名规则:按日期
+      file-name-pattern: ssm_boot.%d{yyyy-MM-dd}.%i.log
