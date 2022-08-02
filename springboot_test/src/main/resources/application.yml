@@ -1,0 +1,30 @@
+server:
+  port: 8086
+
+test:
+  pro: testpro123
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/day01?serverTimezone=UTC
+      password: root
+      username: root
+      remove-abandoned: true
+      remove-abandoned-timeout: 1800
+
+#测试用例随机值生成
+
+testcase:
+  testuser:
+    id: ${random.int}
+    name: ${random.value}
+    uuid: ${random.uuid}
+    publishTime: ${random.long}

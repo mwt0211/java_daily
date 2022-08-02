@@ -1,0 +1,10 @@
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/day01?serverTimezone=UTC
+      password: root
+      username: root
+      remove-abandoned: true
+      remove-abandoned-timeout: 1800
