@@ -32,11 +32,11 @@ public class IBookServiceimpl extends ServiceImpl<BookDao, Book> implements Book
         //模拟从缓存中拿数据
         Book book = cache.get(id);
         if(book == null){
-          Book  querybook= bookdao.selectById(id);
-            cache.put(id,querybook);
-            return querybook;
+       book= bookdao.selectById(id);
+            cache.put(id,book);
+            return book;
         }
-        return cache.get(id);
+        return book;
 
     }
 
