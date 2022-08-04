@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * program: java_daily
  * Created with IntelliJ IDEA.
@@ -16,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-public class Book {
+public class Book implements Serializable {
     private Integer id;
     private String name;
     private String description;

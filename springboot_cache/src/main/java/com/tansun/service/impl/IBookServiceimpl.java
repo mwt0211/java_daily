@@ -7,6 +7,7 @@ import com.tansun.pojo.Book;
 import com.tansun.service.BookService;
 import jdk.nashorn.internal.ir.CallNode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -24,20 +25,26 @@ import java.util.List;
 public class IBookServiceimpl extends ServiceImpl<BookDao, Book> implements BookService {
     @Autowired
     private BookDao bookdao;
+//   private  HashMap<Integer,Book> cache=new HashMap<Integer,Book>();
 
-   private  HashMap<Integer,Book> cache=new HashMap<Integer,Book>();
+//    @Override
+//    public Book getById(Integer id) {
+//        //模拟从缓存中拿数据
+//        Book book = cache.get(id);
+//        if(book == null){
+//       book= bookdao.selectById(id);
+//            cache.put(id,book);
+//            return book;
+//        }
+//        return book;
+//
+//    }
 
+//以ID作为缓存的key
     @Override
+    @Cacheable(value = "cacheSpace",key = "#id")
     public Book getById(Integer id) {
-        //模拟从缓存中拿数据
-        Book book = cache.get(id);
-        if(book == null){
-       book= bookdao.selectById(id);
-            cache.put(id,book);
-            return book;
-        }
-        return book;
-
+        return bookdao.selectById(id);
     }
 
     @Override
