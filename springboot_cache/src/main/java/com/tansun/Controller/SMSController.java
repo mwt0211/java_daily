@@ -2,10 +2,12 @@ package com.tansun.Controller;
 
 import com.tansun.pojo.SMSCode;
 import com.tansun.service.SMSCodeService;
+import net.rubyeye.xmemcached.exception.MemcachedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.TimeoutException;
 
 
 /**
@@ -21,7 +23,7 @@ public class SMSController {
     @Autowired
     private SMSCodeService smsCodeService;
     @GetMapping("/{tel}")
-    public String getCode(@PathVariable("tel")  String Tel){
+    public String getCode(@PathVariable("tel")  String Tel) throws InterruptedException, MemcachedException, TimeoutException {
         String code = smsCodeService.SendToTel(Tel);
         return code;
     }
