@@ -51,7 +51,7 @@ private MemcachedClient memcachedClient;
   public String SendToTel(String Tel) {
       String code = codeUtil.GenernateCode(Tel);
       try {
-          memcachedClient.set(Tel,0,code);
+          memcachedClient.set(Tel,10,code);
       } catch (Exception e) {
           e.printStackTrace();
       }
@@ -68,6 +68,7 @@ private MemcachedClient memcachedClient;
         }
 
         return smsCode.getCheckCode().equals(code);
+
     }
 
 
