@@ -14,6 +14,8 @@ spring:
       username: root
       remove-abandoned: true
       remove-abandoned-timeout: 1800
+  cache:
+    type: ehcache
 #  elasticsearch:
 #    uris: http://localhost:9200
 server:
