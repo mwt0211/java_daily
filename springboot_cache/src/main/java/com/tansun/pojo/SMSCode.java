@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -20,7 +19,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 public class SMSCode implements Serializable {
-    @Size(min = 11,max = 11,message = "手机号必须为11位")
-    private String Tel;
+//    @Size(min = 11,max = 11,message = "手机号必须为11位")
+    private String phoneNumber;
     private String CheckCode;
 }

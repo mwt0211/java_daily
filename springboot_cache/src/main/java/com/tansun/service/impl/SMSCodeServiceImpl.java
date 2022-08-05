@@ -19,9 +19,10 @@ import org.springframework.stereotype.Service;
 public class SMSCodeServiceImpl implements SMSCodeService {
     @Autowired
     private CodeUtil codeUtil;
+
     @Override
 //    @Cacheable(value = "sms",key = "#Tel")
-    @CachePut(value = "sms",key = "#Tel")
+    @CachePut(value = "sms", key = "#Tel")
     public String SendToTel(String Tel) {
         String code = codeUtil.GenernateCode(Tel);
         System.out.println("code = " + code);
@@ -30,8 +31,13 @@ public class SMSCodeServiceImpl implements SMSCodeService {
 
     @Override
     public Boolean CheckCode(SMSCode smsCode) {
-        return null;
+        String code = smsCode.getCheckCode();
+        String cacheCode = codeUtil.GetCacheCode(smsCode.getPhoneNumber());
+
+        return code.equals(cacheCode);
     }
+
+
 
 
 }

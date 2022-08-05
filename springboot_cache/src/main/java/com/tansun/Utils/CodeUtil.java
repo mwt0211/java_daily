@@ -1,5 +1,6 @@
 package com.tansun.Utils;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 /**
@@ -25,9 +26,13 @@ public class CodeUtil {
 
         return patch[length-1]+code ;
     }
-
-    public static void main(String[] args) {
-        String genernateCode = new CodeUtil().GenernateCode("17533889964");
-        System.out.println("genernateCode = " + genernateCode);
+    @Cacheable(value = "sms", key = "#Tel")
+    public String GetCacheCode(String Tel) {
+        return null;
     }
+
+//    public static void main(String[] args) {
+//        String genernateCode = new CodeUtil().GenernateCode("17533889964");
+//        System.out.println("genernateCode = " + genernateCode);
+//    }
 }

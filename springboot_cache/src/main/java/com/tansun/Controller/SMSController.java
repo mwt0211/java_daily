@@ -3,7 +3,10 @@ package com.tansun.Controller;
 import com.tansun.pojo.SMSCode;
 import com.tansun.service.SMSCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+
 
 /**
  * program: java_daily
@@ -18,12 +21,12 @@ public class SMSController {
     @Autowired
     private SMSCodeService smsCodeService;
     @GetMapping("/{tel}")
-    public String getCode(@PathVariable("tel") String Tel){
+    public String getCode(@PathVariable("tel")  String Tel){
         String code = smsCodeService.SendToTel(Tel);
         return code;
     }
     @PostMapping("/check")
-    public Boolean CheckCode(@RequestBody SMSCode smsCode){
+    public Boolean CheckCode( SMSCode smsCode){
         return smsCodeService.CheckCode(smsCode);
     }
 }
