@@ -15,7 +15,19 @@ spring:
       remove-abandoned: true
       remove-abandoned-timeout: 1800
   cache:
-    type: ehcache
+    type: redis
+    redis:
+      time-to-live: 10s   #存活时间
+      use-key-prefix: true    #是否使用前缀
+      key-prefix: cacheSms_     #自定义前缀
+      cache-null-values: true    #是否允许缓存空值
+  redis:
+    host: localhost
+    port: 6379
+#  cache:
+#    type: ehcache
+#    ehcache:
+#      config: ehcache.xml
 #  elasticsearch:
 #    uris: http://localhost:9200
 server:
