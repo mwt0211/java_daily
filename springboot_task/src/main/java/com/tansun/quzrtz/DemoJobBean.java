@@ -21,6 +21,6 @@ public class DemoJobBean {
         Random random = new Random();
         int i = random.nextInt(200);
         int i1 = random.nextInt(100);
-        System.out.println("两个随机数的和为: " + (i1+i));
+        System.out.println(Thread.currentThread().getName()+"两个随机数的和为: " + (i1+i));
     }
 }
