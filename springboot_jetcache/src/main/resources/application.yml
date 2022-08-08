@@ -1,0 +1,42 @@
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/day01?serverTimezone=UTC
+      password: root
+      username: root
+      remove-abandoned: true
+      remove-abandoned-timeout: 1800
+
+  main:
+    #允许循环依赖
+    allow-circular-references: true
+
+server:
+  port: 8088
+jetcache:
+  remote:
+    default:
+      type: redis
+      host: localhost
+      port: 6379
+      poolConfig:
+        maxTotal: 50
+    sms:
+      type: redis
+      host: localhost
+      port: 6379
+      poolConfig:
+        maxTotal: 50
+#本地缓存
+  local:
+    default:
+      type: linkedhashmap
+      keyConvertor: fastjson
+
