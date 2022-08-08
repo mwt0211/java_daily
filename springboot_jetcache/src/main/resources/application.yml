@@ -21,10 +21,15 @@ spring:
 server:
   port: 8088
 jetcache:
+  #生成统计数据
+  statIntervalMinutes: 1
   remote:
     default:
       type: redis
       host: localhost
+      keyConvertor: fastjson
+      valueEncode: java
+      valueDecode: java
       port: 6379
       poolConfig:
         maxTotal: 50
