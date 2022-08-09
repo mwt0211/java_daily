@@ -8,5 +8,6 @@ package com.tansun.Service;
  * Date: 2022/8/8 16:41
  */
 public interface SendEmailService {
-    public void SendEmail();
+    public void SendSimpleEmail();
+    public void SendComplexEmail();
 }
